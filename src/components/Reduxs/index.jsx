@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import { Select, Button } from 'antd';
-import store from '../../redux/store'
+// 引入store，用于获取redux中保存状态
+import store from '../../redux/store';
+// 引入 actionCreator，专门用于创建action对象
+import { incrementAction, decrementAction, asyncAction } from '../../redux/count_action';
 
 const { Option } = Select;
 
@@ -16,31 +19,44 @@ export default class Reduxs extends Component{
   }
   componentDidMount() {
     // 检测redux中状态的变化，只要变化，就调用render
-    // store.subscribe(() => {
-    //   this.setState({}) // 改状态就更新渲染
-    // })
+    store.subscribe(() => {
+      this.setState({}) // 改状态就更新渲染
+    })
   }
   increment = () => {
+    // 本地
     // const { count, num } = this.state
     // this.setState({ count: count + num })
+
+    // redux
     const { num } = this.state
-    store.dispatch({type: 'increment', data: num})
+    // store.dispatch({type: 'increment', data: num})
+    // action
+    store.dispatch(incrementAction(num))
   }
   decrement = () => {
     // const { count, num } = this.state
     // this.setState({ count: count - num })
+
+    // redux
     const { num } = this.state
-    store.dispatch({type: 'decrement', data: num})
+    // store.dispatch({type: 'decrement', data: num})
+    // action
+    store.dispatch(decrementAction(num))
   }
   incrementIfOdd = () => {
     // const { count, num } = this.state
     // if (count % 2 !== 0) {
     //   this.setState({ count: count + num })
     // }
+
+    // redux
     const { num } = this.state
     const count = store.getState()
     if (count % 2 !== 0) {
-      store.dispatch({type: 'increment', data: num})
+      // store.dispatch({type: 'increment', data: num})
+      // action
+      store.dispatch(incrementAction(num))
     }
   }
   incrementAsync = () => {
@@ -48,14 +64,18 @@ export default class Reduxs extends Component{
     // setTimeout(()=> {
     //   this.setState({ count: count + num })
     // }, 500)
+
+    // redux
     const { num } = this.state
-    setTimeout(()=> {
-      store.dispatch({type: 'increment', data: num})
-    }, 500)
+    // setTimeout(()=> {
+    //   // store.dispatch({type: 'increment', data: num})
+    //   // action
+    //   store.dispatch(incrementAction(num))
+    // }, 500)
+    store.dispatch(asyncAction(num, 500))
   }
   handleChange = (val) => {
-    const { num } = this.state
-    this.setState({ num: parseInt(val) })
+    this.setState({ num: val*1 })
   }
   render() {
     return (
