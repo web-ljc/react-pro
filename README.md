@@ -12,3 +12,9 @@ In the project directory, you can run:
 ### `npm run build`
 
 ### `npm run eject`
+
+```
+
+2022-04-08 使用antd插件、配置按需倒入、自定义主题
+
+```
