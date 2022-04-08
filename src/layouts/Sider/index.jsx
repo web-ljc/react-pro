@@ -22,15 +22,19 @@ export default class Sider extends Component{
         <SubMenu key="sub1" icon={<SettingOutlined />} title="菜单栏">
             <Menu.Item key="1">
               <Link to='/routers'>
-                路由1
+                router
               </Link>
             </Menu.Item>
             <Menu.Item key="2">
               <Link to='/antds'>
-                antd2
-              </Link>  
+                antd
+              </Link>
             </Menu.Item>
-            <Menu.Item key="3">redux3</Menu.Item>
+            <Menu.Item key="3">
+              <Link to='/reduxs'>
+                redux
+              </Link>
+            </Menu.Item>
         </SubMenu>
       </Menu>
     )
