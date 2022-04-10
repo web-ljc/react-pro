@@ -35,6 +35,16 @@ export default class Sider extends Component{
                 redux
               </Link>
             </Menu.Item>
+            <Menu.Item key="4">
+              <Link to='/reactReduxs'>
+                react-redux
+              </Link>
+            </Menu.Item>
+            <Menu.Item key="5">
+              <Link to='/ReactReduxSimple'>
+                react-redux(simple)
+              </Link>
+            </Menu.Item>
         </SubMenu>
       </Menu>
     )
