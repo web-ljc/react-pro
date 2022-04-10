@@ -8,6 +8,7 @@ import App from './App';
 const container = document.getElementById('root')
 const root = createRoot(container)
 root.render(
+  // 此处需要用Provider包裹App，目的是让App所有的后代容器组件都能接受store
   <Provider store={store}>
     <App />
   </Provider>

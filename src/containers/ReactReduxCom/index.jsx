@@ -7,7 +7,7 @@ class Person extends Component {
   addPerson = () => {
     const name = this.inputName.value
     const personObj = {id: nanoid(), name}
-    this.props.add(personObj)
+    this.props.addPersonAction(personObj)
     this.inputName.value = ''
     console.info(personObj, 9)
   }
@@ -19,7 +19,7 @@ class Person extends Component {
         <button onClick={this.addPerson}>add</button>
         <ul>
           {
-            this.props.person.map(item => {
+            this.props.persons.map(item => {
               return (<li key={item.id}>{item.name}</li>)
             })
           }
@@ -32,9 +32,9 @@ class Person extends Component {
 export default connect(
   state => ({
     count: state.count,
-    person: state.person
-  }),
+    persons: state.persons
+  }), // 映射状态
   {
-    add: addPersonAction
-  }
+    addPersonAction
+  } // 映射操作方法
 )(Person)
