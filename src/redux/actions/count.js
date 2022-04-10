@@ -3,7 +3,7 @@
  * 1.object类型一般对象 同步函数
  * 2.function类型，异步函数
  */
-import {INCREMENT, DECREMENT} from './constant'
+import {INCREMENT, DECREMENT} from '../constant'
 
 // 同步action，指action的值为Object类型的一般对象
 export const incrementAction = (data) => ({type: INCREMENT, data})

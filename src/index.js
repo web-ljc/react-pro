@@ -14,13 +14,13 @@ root.render(
 )
 
 // 监测redux中状态的改变，如redux的状态发生了变化，重新渲染App组件
-store.subscribe(() => {
-  root.render(
-    <Provider store={store}>
-      <App />
-    </Provider>
-  )
-})
+// store.subscribe(() => {
+//   root.render(
+//     <Provider store={store}>
+//       <App />
+//     </Provider>
+//   )
+// })
 
 // React.StrictMode 语法校验
 // ReactDOM.render(

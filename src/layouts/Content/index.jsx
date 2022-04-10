@@ -5,6 +5,8 @@ import Antds from '../../components/Antds'
 import Reduxs from '../../components/Reduxs'
 import ReactReduxs from '../../containers/ReactReduxs'
 import ReactReduxSimple from '../../containers/ReactReduxSimple'
+import ReactReduxSimple2 from '../../containers/ReactReduxSimple2'
+import ReactReduxCom from '../../containers/ReactReduxCom'
 
 export default class Content extends Component{
   render() {
@@ -15,6 +17,8 @@ export default class Content extends Component{
         <Route path='/reduxs' component={Reduxs} />
         <Route path='/reactReduxs' component={ReactReduxs} />
         <Route path='/ReactReduxSimple' component={ReactReduxSimple} />
+        <Route path='/ReactReduxSimple2' component={ReactReduxSimple2} />
+        <Route path='/ReactReduxCom' component={ReactReduxCom} />
       </>
     )
   }

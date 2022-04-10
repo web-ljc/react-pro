@@ -3,13 +3,13 @@ import ReactReduxsUI from '../../components/ReactReduxs'
 // 引入connect用于连接UI组件与redux
 import { connect } from 'react-redux'
 // 引入action
-import { decrementAction, incrementAction, asyncAction } from '../../redux/count_action'
+import { decrementAction, incrementAction, asyncAction } from '../../redux/actions/count'
 
 // mapStateToProps函数的返回对象
 // 返回对象中的key就作为传递给UI组件props的key: value --状态
 // mapStateToProps用于传递状态
 const mapStateToProps = (state) => {
-  return {count: state}
+  return {count: state.count}
 }
 // mapDispatchToProps函数返回对象
 // 返回对象中的key就作为传递给UI组件props的key: value --操作状态的方法

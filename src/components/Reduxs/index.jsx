@@ -3,7 +3,7 @@ import { Select, Button } from 'antd';
 // 引入store，用于获取redux中保存状态
 import store from '../../redux/store';
 // 引入 actionCreator，专门用于创建action对象
-import { incrementAction, decrementAction, asyncAction } from '../../redux/count_action';
+import { incrementAction, decrementAction, asyncAction } from '../../redux/actions/count';
 
 const { Option } = Select;
 
@@ -52,7 +52,8 @@ export default class Reduxs extends Component{
 
     // redux
     const { num } = this.state
-    const count = store.getState()
+    // const count = store.getState()
+    const count = store.count
     if (count % 2 !== 0) {
       // store.dispatch({type: 'increment', data: num})
       // action
@@ -88,7 +89,8 @@ export default class Reduxs extends Component{
           <p> {this.state.text5} </p>
         </div>
         <div>
-          <h1>当前求和为：{store.getState()}</h1>
+          {/* <h1>当前求和为：{store.getState()}</h1> */}
+          <h1>当前求和为：{store.count}</h1>
         <Select ref={c => this.selectNum = c} onChange={this.handleChange} style={{ width: 120 }}>
           <Option value="1">1</Option>
           <Option value="2">2</Option>
