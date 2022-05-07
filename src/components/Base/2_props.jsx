@@ -27,29 +27,22 @@ export default class MyComponent extends Component {
     return (
       <div>
         <h1 onClick={this.changeWeather}>今天天气很{isHot ? '炎热' : '凉爽'}，今天有{wind}</h1>
+        <MyFnComponent />
         {/* <SonComponent name={person.name} age={person.age} /> */}
         <SonComponent {...person} speak={this.speak} />
-        <MyFnComponent {...person} />
       </div>
     )
   }
 }
 
 
-// 自定义子组件，获取props
+// 获取props
 class SonComponent extends Component {
-  // 给类自身添加
-  // 入参校验，进行类型、必要性的限制
-  static propTypes = {
-    name: PropTypes.string.isRequired,
-    age: PropTypes.number,
-    speak: PropTypes.func
+  // 构造器是否接收props，是否传递给super，取决于是否希望在构造器中通过this访问props
+  constructor(props) {
+    super(props)
+    console.info('constructor', this.props)
   }
-  // 指定标签属性默认值
-  static defaultProps = {
-    age: 80
-  }
-
   // props是只读的，不能进行修改
   render() {
     console.info(this)
@@ -58,39 +51,32 @@ class SonComponent extends Component {
     // 调用方法
     speak()
     return(
-      <div>
-        类式组件
-        <ul>
-          <li>姓名：{name}</li>
-          <li>年龄：{age+1}</li>
-        </ul>
-      </div>
+      <ul>
+        <li>姓名：{name}</li>
+        <li>年龄：{age+1}</li>
+      </ul>
     )
   }
 }
+// 入参校验，进行类型、必要性的限制
+SonComponent.propTypes = {
+  name: PropTypes.string.isRequired,
+  age: PropTypes.number,
+  speak: PropTypes.func
+}
+// 指定标签属性默认值
+SonComponent.defaultProps = {
+  age: 80
+}
 
 // 创建函数式组件
-// 通过props获取参数
-function MyFnComponent(props) {
+function MyFnComponent() {
   // console.info(this) // this的undefinde，因为babel编译后开启了严格模式
   return (
     <>
       <div>
         函数式组件
-        <ul>
-          <li>姓名：{props.name}</li>
-          <li>年龄：{props.age+1}</li>
-        </ul>
       </div>
     </>
   )
-}
-// 函数式组件参数校验
-MyFnComponent.propTypes = {
-  name: PropTypes.string.isRequired,
-  age: PropTypes.number
-}
-// 指定标签属性默认值
-MyFnComponent.defaultProps = {
-  age: 80
 }
