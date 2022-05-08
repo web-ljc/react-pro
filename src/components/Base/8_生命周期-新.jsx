@@ -157,7 +157,7 @@ class ShowText extends Component{
     - shouldComponentUpdate()
     - render()
     - getSnapshotBeforeUpdate
-    - componentDidMount()
+    - componentDidUpdate()
   3.卸载组件
     - componentWillUnmount()
   
