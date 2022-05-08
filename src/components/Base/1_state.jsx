@@ -27,6 +27,7 @@ export default class MyComponent extends Component {
     const isHot = this.state.isHot
     // 状态不可直接更改，需要借助内置API，且更新是合并不是替换
     this.setState({isHot: !isHot})
+    
   }
   // render调用1+n次，1初始化，n状态更新次数
   render() {
