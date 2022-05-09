@@ -40,25 +40,15 @@ function B() {
 }
 
 /*
-  ### 通信组件方式总结
-    - 组件间关系
-      - 父子组件
-      - 兄弟组件 / 非嵌套组件
-      - 祖孙组件 / 跨级组件
+  ### 消息订阅-发布
+    - import PubSub from 'pubsub-js'
 
-    - 几种通信方式
-      - props
-        + children props
-        + render props
-      - 消息订阅-发布
-        - pubs-sub等
-      - 集中式管理
-        - redux、mobx等
-      - conText
-        - 生产者-消费者模式
-    
-    - 比较好的搭配
-      - 父子组件 props
-      - 兄弟组件 消息订阅-发布、集中管理·
-      - 子孙组件 消息订阅-发布、集中式管理、conText(开发用的少，封装组件用的多)
+    - 发布消息
+      - PubSub.publish('query', data)
+
+    - 订阅消息
+      PubSub.subscribe('query', (_, data) => {
+        console.info(data)
+      })
+  
 */

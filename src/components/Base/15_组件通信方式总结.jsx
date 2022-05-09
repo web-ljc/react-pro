@@ -1,42 +1,18 @@
-import React, {Component, useState, useEffect} from "react";
-import PubSub from 'pubsub-js'
+import React, {Component} from "react";
 
 export default class MyComponent extends Component {
+  state = {
+    carName: '奔驰',
+  }
   render() {
+    const {carName, hasError} = this.state
     return (
       <div>
-        <A />
-        <B />
+        <h2>我是父组件A</h2>
+        <h4>我的车名字是：{carName}</h4>
       </div>
     )
   }
-}
-
-function A() {
-  const [data, setData] = useState({name: 'zs', age: 12})
-  function changeFn() {
-    PubSub.publish('query', data)
-  }
-  return (
-    <>
-      <h1>aa</h1>
-      <button onClick={changeFn}>点击</button>
-    </>
-  )
-}
-
-function B() {
-  const [obj, setObj] = useState({})
-  useEffect(() => {
-    PubSub.subscribe('query', (_, data) => {
-      let obj2 = data
-      setObj(val => obj2)
-    })
-  }, [])
-
-  return (
-    <h1>bbb {obj.name}</h1>
-  )
 }
 
 /*
@@ -59,6 +35,6 @@ function B() {
     
     - 比较好的搭配
       - 父子组件 props
-      - 兄弟组件 消息订阅-发布、集中管理·
+      - 兄弟组件 消息订阅-发布、集中管理
       - 子孙组件 消息订阅-发布、集中式管理、conText(开发用的少，封装组件用的多)
 */
