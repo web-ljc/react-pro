@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react'
 import ReactDOM from 'react-dom'
 import MyUseMemo from './02_useMemo&useCallback'
+import FnRef from './03_ref'
 
 // 函数组件
 export default function Hook(params){
@@ -43,6 +44,7 @@ export default function Hook(params){
       <button onClick={unmount}>提示</button>
       <br />
       {/* useMemo & useCallback */}
+      <FnRef />
       <MyUseMemo />
     </div>
   )
