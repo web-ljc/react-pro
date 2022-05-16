@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react'
 import ReactDOM from 'react-dom'
+import MyUseMemo from './02_useMemo&useCallback'
 
 // 函数组件
 export default function Hook(params){
@@ -17,7 +18,7 @@ export default function Hook(params){
     // componentDidMount
     console.info('didMount')
     let timer = setInterval(() => {
-      setNum(count => count+1)
+      // setNum(count => count+1)
     }, 1000)
     return () => {
       // componentWillUnmount
@@ -40,6 +41,9 @@ export default function Hook(params){
       <h2 ref={myRef}>当前和为：{num}</h2>
       <button onClick={add}>点击</button>
       <button onClick={unmount}>提示</button>
+      <br />
+      {/* useMemo & useCallback */}
+      <MyUseMemo />
     </div>
   )
 }
