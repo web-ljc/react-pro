@@ -32,6 +32,9 @@ const Foo = forwardRef((props, inputRef) => {
 })
 
 class MyFoo extends Component{
+  handleClick = () => {
+    console.info(3)
+  }
   render() {
     return (
       <>

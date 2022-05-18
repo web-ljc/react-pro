@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react'
 import ReactDOM from 'react-dom'
 import MyUseMemo from './02_useMemo&useCallback'
 import FnRef from './03_ref'
+import SetStatePage from './04_useState'
 
 // 函数组件
 export default function Hook(params){
@@ -45,6 +46,7 @@ export default function Hook(params){
       <br />
       {/* useMemo & useCallback */}
       <FnRef />
+      <SetStatePage />
       <MyUseMemo />
     </div>
   )
